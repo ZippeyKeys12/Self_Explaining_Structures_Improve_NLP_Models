@@ -30,8 +30,6 @@ from datasets.snli_dataset import SNLIDataset
 from explain.model import ExplainableModel
 from utils.radom_seed import set_random_seed
 
-set_random_seed(0)
-
 
 class ExplainNLP(pl.LightningModule):
 
@@ -206,6 +204,7 @@ def get_parser():
     parser.add_argument("--lamb", default=1.0, type=float, help="regularizer lambda")
     parser.add_argument("--task", default='sst5', type=str, help="nlp tasks")
     parser.add_argument("--mode", default='train', type=str, help="either train or eval")
+    parser.add_argument("--seed", type=int,default=0, help="seed for random generation")
 
     return parser
 
@@ -254,6 +253,9 @@ def main():
     parser = get_parser()
     parser = Trainer.add_argparse_args(parser)
     args = parser.parse_args()
+
+    set_random_seed(args.seed)
+
     if args.mode == 'train':
         train(args)
     elif args.mode == 'eval':
