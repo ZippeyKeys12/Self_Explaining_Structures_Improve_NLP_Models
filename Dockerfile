@@ -18,5 +18,8 @@ RUN git lfs install && \
     git reset --hard 2ecd732fb792ee9de217a2f7a7154e044cf3d782 && \
     sed -i -e 's/"num_labels": 2/"num_labels": 5/g' config.json
 
+RUN wget https://nlp.stanford.edu/projects/snli/snli_1.0.zip && \
+    unzip snli_1.0.zip
+
 RUN mv explain/trainer.py trainer.py && \
     mkdir checkpoints span

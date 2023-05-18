@@ -1,6 +1,6 @@
 export ROBERTA_BASE_PATH=/opt/app/roberta-base
 export SST_PATA_PATH=/opt/app/datasets/sst
-export SNLI_DATA_PATH=/opt/app/datasets/snli
+export SNLI_DATA_PATH=/opt/app/snli_1.0
 export SELF_EXPLAINING_MODEL_CHECKPOINTS=/opt/app/checkpoints
 export SPAN_SAVE_PATH=/opt/app/span
 
